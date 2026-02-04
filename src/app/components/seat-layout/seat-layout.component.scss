@@ -1,0 +1,141 @@
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    color: white;
+}
+
+.screen {
+    width: 80%;
+    height: 40px;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 50% 50%;
+    font-weight: bold;
+    letter-spacing: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.seat-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.seat-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    &.premium-boundary {
+        margin-top: 30px;
+    }
+}
+
+.row-label {
+    width: 20px;
+    font-weight: bold;
+    color: #666;
+}
+
+.seats {
+    display: flex;
+    gap: 8px;
+}
+
+.seat {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.seat.classic {
+    background-color: var(--seat-classic-bg, #3a3a3a);
+    border: 1px solid #4a4a4a;
+}
+
+.seat.premium {
+    background-color: var(--seat-premium-bg, #3a3a3a);
+    border: 2px solid var(--seat-premium-border, #86522b);
+}
+
+.seat.selected {
+    background-color: var(--seat-selected-bg, #d27c4b) !important;
+    border-color: #f2a172;
+    color: black;
+}
+
+.seat.occupied {
+    background-color: var(--seat-occupied-bg, #1a1a1a);
+    cursor: not-allowed;
+    opacity: 0.5;
+    border-color: #333;
+    color: #444;
+}
+
+.seat:not(.occupied):hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.seat-sample {
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+}
+
+.seat-sample.available {
+    background: #3a3a3a;
+    border: 1px solid #4a4a4a;
+}
+
+.seat-sample.selected {
+    background: #d27c4b;
+}
+
+.seat-sample.occupied {
+    background: #1a1a1a;
+    border: 1px solid #333;
+}
+
+.seat-sample.premium {
+    border: 2px solid #86522b;
+    background: #3a3a3a;
+}
+
+.legend-info {
+    display: flex;
+    gap: 20px;
+    color: #aaa;
+    font-weight: bold;
+}

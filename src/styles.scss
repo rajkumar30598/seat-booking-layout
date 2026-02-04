@@ -1,1 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --seat-classic-bg: #3a3a3a;
+  --seat-premium-bg: #3a3a3a;
+  --seat-premium-border: #86522b;
+  --seat-selected-bg: #d27c4b;
+  --seat-occupied-bg: #1a1a1a;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #0d0d0d;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 50px;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #fff, #d27c4b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    color: #888;
+    font-size: 1.1rem;
+  }
+}
+
+main {
+  flex: 1;
+}
+
+.booking-area {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+footer {
+  margin-top: 60px;
+  text-align: center;
+  color: #444;
+  font-size: 0.9rem;
+  border-top: 1px solid #222;
+  padding-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .booking-area {
+    flex-direction: column;
+    align-items: center;
+  }
+}

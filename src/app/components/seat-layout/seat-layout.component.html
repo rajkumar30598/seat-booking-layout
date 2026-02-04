@@ -1,0 +1,36 @@
+<div class="layout-container">
+    <div class="screen">SCREEN</div>
+
+    <div class="seat-grid">
+        <div *ngFor="let row of config.rows; let i = index" class="seat-row"
+            [class.premium-boundary]="isPremiumRow(row) && (i === 0 || !isPremiumRow(config.rows[i-1]))">
+            <div class="row-label">{{ row }}</div>
+            <div class="seats">
+                <div *ngFor="let seat of getSeatsInRow(row)" [class]="getSeatClass(seat)" (click)="toggleSeat(seat)"
+                    [title]="seat.id + ' (' + seat.type + ') - $' + seat.price">
+                    {{ seat.number }}
+                </div>
+            </div>
+            <div class="row-label">{{ row }}</div>
+        </div>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item">
+            <div class="seat-sample available"></div> Available
+        </div>
+        <div class="legend-item">
+            <div class="seat-sample selected"></div> Selected
+        </div>
+        <div class="legend-item">
+            <div class="seat-sample occupied"></div> Occupied
+        </div>
+        <div class="legend-item">
+            <div class="seat-sample premium"></div> Premium
+        </div>
+        <div class="legend-info">
+            <span>Classic: ${{config.classicPrice}}</span>
+            <span>Premium: ${{config.premiumPrice}}</span>
+        </div>
+    </div>
+</div>

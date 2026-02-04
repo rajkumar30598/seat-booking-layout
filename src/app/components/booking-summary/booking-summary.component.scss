@@ -1,0 +1,86 @@
+.summary-container {
+    background: #1a1a1a;
+    color: white;
+    padding: 24px;
+    border-radius: 12px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+}
+
+h3 {
+    margin: 0;
+    color: #d27c4b;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 12px;
+}
+
+.empty-msg {
+    color: #666;
+    font-style: italic;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.selection-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.summary-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    padding: 8px;
+    background: #252525;
+    border-radius: 6px;
+}
+
+.seat-id {
+    font-weight: bold;
+    color: #fff;
+}
+
+.seat-type {
+    color: #888;
+    font-size: 0.8rem;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.seat-price {
+    color: #d27c4b;
+    font-weight: bold;
+}
+
+.summary-footer {
+    border-top: 2px solid #333;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.total-count {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+.total-price {
+    font-size: 1.2rem;
+}
+
+.total-price strong {
+    color: #d27c4b;
+}

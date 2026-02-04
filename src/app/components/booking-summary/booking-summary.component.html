@@ -1,0 +1,27 @@
+<div class="summary-container">
+    <h3>Booking Summary</h3>
+
+    <div *ngIf="selectedSeats.length;else emptyMsgTemplate" class="selection-list">
+        <div *ngFor="let seat of sortedSeats" class="summary-item">
+            <span class="seat-id">{{ seat.id }}</span>
+            <span class="seat-type">({{ seat.type }})</span>
+            <span class="spacer"></span>
+            <span class="seat-price">${{ seat.price }}</span>
+        </div>
+    </div>
+
+    <ng-template #emptyMsgTemplate>
+        <div class="empty-msg">
+            No seats selected.
+        </div>
+    </ng-template>
+
+    <div class="summary-footer">
+        <div class="total-count">
+            Seats: <strong>{{ selectedSeats.length }}</strong>
+        </div>
+        <div class="total-price">
+            Total: <strong>${{ totalPrice }}</strong>
+        </div>
+    </div>
+</div>
