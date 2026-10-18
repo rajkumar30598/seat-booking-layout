@@ -1,27 +1,68 @@
-# BookingSystem
+# Seat Booking Layout
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
+An interactive cinema-style seat selection screen built with Angular, with classic and premium seating tiers and a live booking summary.
 
-## Development server
+**Live demo:** https://seat-booking-layout.vercel.app
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![Angular](https://img.shields.io/badge/Angular-16-DD0031?logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.1-3178C6?logo=typescript&logoColor=white)
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Seat grid generated from a single config object (rows, seats per row, premium rows, occupied seats, prices)
+- Two seat tiers: **Classic** and **Premium**, each with its own price
+- Pre-occupied seats are shown and cannot be selected
+- Click to select / deselect seats; tooltips show seat ID, tier and price
+- Screen indicator, row labels on both sides and a legend (available, selected, occupied, premium)
+- Booking summary listing selected seats sorted by row and number, with seat count and total price
 
-## Build
+## Tech stack
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular 16.1 (NgModule-based)
+- TypeScript 5.1
+- SCSS
+- Karma + Jasmine for unit tests
 
-## Running unit tests
+## Getting started
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Requires Node.js 16.14+ / 18 and npm.
 
-## Running end-to-end tests
+```bash
+npm install
+npm start        # ng serve -> http://localhost:4200
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Other scripts:
 
-## Further help
+```bash
+npm run build    # production build in dist/
+npm test         # unit tests via Karma
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Configuration
+
+The hall layout lives in `src/app/app.component.ts`:
+
+```ts
+config: ComponentConfig = {
+  rows: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+  seatsPerRow: 12,
+  premiumRows: ['E', 'F', 'G', 'H'],
+  occupiedSeats: ['A3', 'B7', 'C1', 'D10', 'E5', 'F2', 'G12', 'H1'],
+  classicPrice: 10,
+  premiumPrice: 15
+};
+```
+
+Change these values to model a different hall.
+
+## Project structure
+
+```
+src/app/
+├── app.component.*              # page shell and layout config
+└── components/
+    ├── models/models.ts         # Seat, SeatType, ComponentConfig
+    ├── seat-layout/             # seat grid, selection logic, legend
+    └── booking-summary/         # selected seats, count and total
+```
